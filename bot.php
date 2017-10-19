@@ -1,5 +1,5 @@
 <?php
-$access_token = 'c6PwuacjH6iwxhzpfzerZJMqpm3B3GZVxxNkmlygPKjodNlhfGcx7rSnrw+BhSvLMs7C89ue1SUoxpY16K5GrTGo1kTXBTXZqPKdyTautrmD0ZXOkolhCSIZjVq3h+OKA24HCODBYaxBKv5HG58uAQdB04t89/1O/w1cDnyilFU=';
+$access_token = 'd60OWyK4zeSC9zmA9H/qSFQ/42MFixasGHIFcWtToOTgY+DhNly2tOksBsNCLTJIMs7C89ue1SUoxpY16K5GrTGo1kTXBTXZqPKdyTautrl2IYWFOP0sUAETOQgJkWdz70UT24PAA9jPHUPPUcq7nwdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -15,11 +15,13 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
 			// Build message to reply back
+
+			$splitdata = splitmessage($text);
+
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => $splitdata
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -43,5 +45,10 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 		}
 	}
+}
+function splitmessage($messageIn){
+	$result = explode("!",$messageIn);
+	$message = "Customer: ".$result[0]."/nOrder".$result[1];
+	return $message;
 }
 echo "OK";
