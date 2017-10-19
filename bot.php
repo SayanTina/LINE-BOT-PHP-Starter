@@ -48,7 +48,7 @@ if (!is_null($events['events'])) {
 }
 function splitmessage($messageIn){
 	$result = explode("!",$messageIn);
-	$message = "Customer: ".$result[0]."/nOrder".$result[1];
+	$message = "--Customer--\n".$result[0]."\n--Order--".$result[1];
 	return $message;
 }
 echo "OK";
