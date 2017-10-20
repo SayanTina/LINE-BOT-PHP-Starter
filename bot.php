@@ -1,5 +1,5 @@
 <?php
-include './config.php'
+include './config.php';
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
