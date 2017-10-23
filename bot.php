@@ -15,7 +15,8 @@ if (!is_null($events['events'])) {
 
 			switch($text){
 				case "all order":
-					getAll();
+					$splitdata = "get all\n";
+					$splitdata .= getAll();
 					break;
 				default:
 					$splitdata = splitmessage($text);
