@@ -1,9 +1,9 @@
 <?php
-
+include './config.php';
 function AddOrder($messageOrder){
 	$dbconn = pg_connect($connStr);
 	$reval = "failed";
-	if($dbconn == null) return $reval;
+	if($dbconn == null) $reval = '0';
 	$m1 = pg_escape_string($messageOrder[0]);
 	$m2 = pg_escape_string($messageOrder[1]);
 	$query = "INSERT INTO public.order_message VALUES ('$x1','$x2')";
