@@ -1,5 +1,6 @@
 <?php
 include './config.php';
+include './database.php';
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -12,7 +13,14 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
 
-			$splitdata = splitmessage($text);
+			switch($text){
+				case "all order":
+					getAll();
+					break;
+				default:
+					$splitdata = splitmessage($text);
+					break;
+			}
 
 			$messages = [
 				'type' => 'text',
@@ -43,7 +51,12 @@ if (!is_null($events['events'])) {
 }
 function splitmessage($messageIn){
 	$result = explode("!",$messageIn);
-	$message = "--Customer--\n".$result[0]."\n--Order--\n".$result[1];
+	$message = "ADD\n--Customer--\n".$result[0]."\n--Order--\n".$result[1];
+	AddOrder($result);
 	return $message;
+}
+function getAll(){
+	$result = GetOrderAll();
+	return $result;
 }
 echo "OK";
