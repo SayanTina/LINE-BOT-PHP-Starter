@@ -6,7 +6,7 @@ function AddOrder($messageOrder){
 	$dbconn = pg_connect($connStr);
 	$reval = "0";
 	if($dbconn == null){
-		$reval = 'failed';
+		$reval = $connStr;
 		return $reval;
 	}
 	$m1 = pg_escape_string($messageOrder[0]);
