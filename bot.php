@@ -51,7 +51,7 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-function splitmessage($messageIn){
+function splitmessage($messageIn,$connStr){
 	$result = explode("!",$messageIn);
 	$message = "ADD\n--Customer--\n".$result[0]."\n--Order--\n".$result[1]."\n";
 	$message .= AddOrder($result);
