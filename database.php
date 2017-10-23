@@ -2,7 +2,7 @@
 
 function AddOrder($messageOrder){
 	$dbconn = pg_connect($connStr);
-	$reval = "failed"
+	$reval = "failed";
 	if($dbconn == null) return $reval;
 	$m1 = pg_escape_string($messageOrder[0]);
 	$m2 = pg_escape_string($messageOrder[1]);
@@ -10,7 +10,7 @@ function AddOrder($messageOrder){
 	$result = pg_query($dbconn, $query);
 	if($result != null){
 	  echo "success";
-	  $reval = "success"
+	  $reval = "success";
 	}
 	pg_close($dbconn);
 	return $reval;
