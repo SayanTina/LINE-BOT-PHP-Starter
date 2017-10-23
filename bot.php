@@ -53,8 +53,8 @@ if (!is_null($events['events'])) {
 }
 function splitmessage($messageIn){
 	$result = explode("!",$messageIn);
-	$message = "ADD\n--Customer--\n".$result[0]."\n--Order--\n".$result[1];
-	AddOrder($result);
+	$message = "ADD\n--Customer--\n".$result[0]."\n--Order--\n".$result[1]."\n";
+	$message .= AddOrder($result);
 	return $message;
 }
 function getAll(){
