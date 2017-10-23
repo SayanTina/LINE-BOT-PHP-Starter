@@ -25,6 +25,7 @@ function GetOrderAll(){
 	$dbconn = pg_connect($connStr);
 	$result = pg_query($dbconn, "select * from public.order_message ");
 	$i=1;
+	$message .= $i;
 	while ($row = pg_fetch_row($result)) {
 		$message .= "No.".$i;
 	    $message .= "\nCustomer:\n".$row[0];
