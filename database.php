@@ -14,7 +14,7 @@ function AddOrder($messageOrder){
 	$query = "INSERT INTO public.order_message VALUES ('$x1','$x2')";
 	$result = pg_query($dbconn, $query);
 	if($result != null){
-	  $reval = "success";
+	  $reval = "success".$messageOrder[0];
 	}
 	pg_close($dbconn);
 	return $reval;
