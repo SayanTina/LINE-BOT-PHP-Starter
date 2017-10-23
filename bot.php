@@ -16,7 +16,7 @@ if (!is_null($events['events'])) {
 			switch($text){
 				case "all order":
 					$splitdata = "get all\n";
-					//$splitdata .= getAll();
+					$splitdata .= getAll();
 					break;
 				default:
 					$splitdata = "another case\n";
