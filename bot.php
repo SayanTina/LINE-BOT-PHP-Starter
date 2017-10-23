@@ -1,6 +1,6 @@
 <?php
 include './config.php';
-//include './database.php';
+include './database.php';
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -19,7 +19,7 @@ if (!is_null($events['events'])) {
 					//$splitdata .= getAll();
 					break;
 				default:
-					$splitdata = "anotger case\n";
+					$splitdata = "another case\n";
 					//$splitdata .= splitmessage($text);
 					break;
 			}
