@@ -1,5 +1,4 @@
 <?php
-include './config.php';
 
 function AddOrder($messageOrder){
 	$dbconn = pg_connect($connStr);
