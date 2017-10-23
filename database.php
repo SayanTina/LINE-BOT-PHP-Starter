@@ -11,10 +11,10 @@ function AddOrder($messageOrder){
 	}
 	$m1 = pg_escape_string($messageOrder[0]);
 	$m2 = pg_escape_string($messageOrder[1]);
-	$query = "INSERT INTO public.order_message VALUES ('$x1','$x2')";
+	$query = "INSERT INTO public.order_message VALUES ('$m1','$m2')";
 	$result = pg_query($dbconn, $query);
 	if($result != null){
-	  $reval = "success".$messageOrder[0];
+	  $reval = "success";
 	}
 	pg_close($dbconn);
 	return $reval;
