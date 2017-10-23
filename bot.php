@@ -20,7 +20,7 @@ if (!is_null($events['events'])) {
 					break;
 				default:
 					$splitdata = "another case\n";
-					//$splitdata .= splitmessage($text);
+					$splitdata .= splitmessage($text);
 					break;
 			}
 

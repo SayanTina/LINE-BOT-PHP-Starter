@@ -5,16 +5,16 @@ function ConnectStatus(){
 	$stat = pg_connection_status($dbconn);
 	if ($stat === PGSQL_CONNECTION_OK){
 		echo 'Connection status ok';
-		$result = true;
+		$result = false;
 	} else {
 		echo 'Connection status bad';
-		$result = false;
+		$result = true;
 	}
 	return $result;
 }
 
 function AddOrder($messageOrder){
-	if(!ConnectionStatus()) return;
+	if(ConnectionStatus()) return;
 	$m1 = pg_escape_string($messageOrder[0]);
 	$m2 = pg_escape_string($messageOrder[1]);
 	$query = "INSERT INTO public.order_message VALUES ('$x1','$x2')";
@@ -26,7 +26,7 @@ function AddOrder($messageOrder){
 }
 
 function GetOrderAll(){
-	if(!ConnectionStatus()) return;
+	if(ConnectionStatus()) return;
 	$result = pg_query($conn, "select * from public.order_message ");
 	$i=1;
 	while ($row = pg_fetch_row($result)) {
