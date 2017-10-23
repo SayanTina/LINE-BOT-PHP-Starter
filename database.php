@@ -34,6 +34,7 @@ function GetOrderAll(){
 		$message .= "No.".$i;
 	    $message .= "\nCustomer:\n".$row[0];
 	    $message .= "\nOrder:\n".$row[1]."\n\n";
+	    $i++;
 	}
 	pg_close($dbconn);
 	return $message;
