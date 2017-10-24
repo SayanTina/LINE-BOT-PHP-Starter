@@ -64,5 +64,8 @@ function getAll(){
 	$result = GetOrderAll();
 	return $result;
 }
+function export_excel(){  
+	return "\nhttps://message2order.herokuapp.com/Export_Excel.php";
+}
 echo "OK";
 ?>
