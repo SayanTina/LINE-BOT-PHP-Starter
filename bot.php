@@ -20,6 +20,7 @@ if (!is_null($events['events'])) {
 					break;
 				case "Excel":
 					$splitdata = "Excel file";
+					$splitdata .= export_excel();
 					break;
 				default:
 					$splitdata = "another case\n";
