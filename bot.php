@@ -16,7 +16,11 @@ if (!is_null($events['events'])) {
 			switch($text){
 				case "all order":
 					$splitdata = "get all\n";
-					$splitdata .= GetOrderAll();
+					try{
+						$splitdata .= GetOrderAll();
+					}catch (Exception $e){
+						$splitdata .= $e;
+					}
 					break;
 				case "Excel":
 					$splitdata = "Excel file";
