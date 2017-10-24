@@ -114,7 +114,7 @@ function createExcel($data){
    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
    $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
    $callEndTime = microtime(true);
-   $callTime = $callEndTime - $callStartTime
+   $callTime = $callEndTime - $callStartTime;
 
 }
 echo "OK";
