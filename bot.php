@@ -20,7 +20,8 @@ if (!is_null($events['events'])) {
 					break;
 				case "Excel":
 					$splitdata = "Excel file";
-					createExcel(GetOrderToExcel());
+					$data = GetOrderToExcel();
+					createExcel($data);
 					break;
 				default:
 					$splitdata = "another case\n";
