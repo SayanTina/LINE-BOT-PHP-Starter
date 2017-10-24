@@ -39,7 +39,7 @@ function GetOrderAll(){
 	pg_close($dbconn);
 	return $message;
 }
-function GetOrderToExcel(){
+/*function GetOrderToExcel(){
 	$connStrs = "host=ec2-54-204-41-80.compute-1.amazonaws.com port=5432 dbname=ddtqgibulmg329 user=xcouzcymallahy password=8110ad5d0c0f0f169502f0f61ce449a2704cbacc4f8d71b0aecf325701bca515";
 	$dbconn = pg_connect($connStrs);
 	$reval = "0";
@@ -58,4 +58,5 @@ function GetOrderToExcel(){
 	pg_close($dbconn);
 	return $message;
 }
+*/
 ?>
