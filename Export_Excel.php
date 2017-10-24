@@ -1,7 +1,7 @@
 <?php
 	include './database.php';
 	$data = GetOrderToExcel();
-	$filename = "export_order.xlsx"; 
+	$filename = "export_order.xls"; 
 	//header info for browser
 	header('Content-type: application/excel');
 	header('Content-Disposition: attachment; filename='.$filename);
