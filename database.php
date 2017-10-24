@@ -28,6 +28,7 @@ function GetOrderAll(){
 		$reval = "failed";
 		return $reval;
 	}
+	$message = "initial";
 	$result = pg_query($dbconn, "SELECT * FROM public.order_message");
 	$i=1;
 	while ($row = pg_fetch_row($result)) {
