@@ -20,8 +20,8 @@ if (!is_null($events['events'])) {
 					break;
 				case "Excel":
 					$splitdata = "Excel file";
-					$data = GetOrderToExcel();
-					createExcel($data);
+					//$data = GetOrderToExcel();
+					//createExcel($data);
 					break;
 				default:
 					$splitdata = "another case\n";
@@ -66,10 +66,10 @@ function getAll(){
 	$result = GetOrderAll();
 	return $result;
 }
-function createExcel($data){
+/*function createExcel($data){
 	define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
 
-	/** Include PHPExcel */
+	// Include PHPExcel 
 	require_once dirname(__FILE__) . './Classes/PHPExcel.php';
 
 	// Create new PHPExcel object
@@ -117,5 +117,7 @@ function createExcel($data){
    $callEndTime = microtime(true);
    $callTime = $callEndTime - $callStartTime;
 
-}
+}*/
 echo "OK";
+
+?>
