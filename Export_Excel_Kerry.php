@@ -54,8 +54,7 @@
 							}
 							echo "***";
 							for($j=0;$j < $index;$j++){
-								echo $name_product[$j].$amount_product[$j]
-								if($j+1 < $index) echo " ";
+								echo $name_product[$j].$amount_product[$j];
 							}
 							echo "***";
 							?></td>
