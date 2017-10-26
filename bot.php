@@ -14,7 +14,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 
 			$splitdata = "Add new order\n";
-			$splitdata .= splitmessage($text);
+			//$splitdata .= splitmessage($text);
 
 			$messages = [
 				'type' => 'text',
@@ -43,6 +43,7 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
+echo "OK";
 function splitmessage($messageIn){
 	$messageOut = AddOrder($messageIn);
 	return $messageOut;
