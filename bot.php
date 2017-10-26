@@ -43,7 +43,6 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK";
 function splitmessage($messageIn){
 	$messageOut = AddOrder($messageIn);
 	return $messageOut;

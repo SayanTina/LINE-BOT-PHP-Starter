@@ -1,8 +1,5 @@
 <?php
 function AddOrder($messageOrder){
-	/*
-
-	*/
 	$connStrs = "host=ec2-54-204-41-80.compute-1.amazonaws.com port=5432 dbname=ddtqgibulmg329 user=xcouzcymallahy password=8110ad5d0c0f0f169502f0f61ce449a2704cbacc4f8d71b0aecf325701bca515";
 	$dbconn = pg_connect($connStrs);
 	$reval = "0";
@@ -36,6 +33,7 @@ function CheckPatternMs($data){
 	$arr3 = explode(" ",$arr[3]);
 	$arr4 = explode(" ",$arr[4]);
 	$i=0;
+	$message_return = "success";
 	foreach($arr4 as $val){
 	    preg_match('/[^\d]+/', $val, $textMatch);
 	    preg_match('/\d+/', $val, $numMatch);
@@ -49,16 +47,16 @@ function CheckPatternMs($data){
     		$i++;
     	}
 	}
-	if(empty(end($arr3)){
-		return "Error post code";
+	if(empty(end($arr3))){
+		$message_return = "Error post code";
 	}
 	if($i==0){
-		return "Error order";
+		$message_return .= "Error order";
 	}
 	if(empty($arr[5])){
-		return "Missing Cost all";
+		$message_return = "Missing Cost all";
 	}
-	return "success";
+	return $message_return;
 }
-
 ?>
+
