@@ -13,20 +13,8 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
 
-			switch($text){
-				case "all order":
-					$splitdata = "get all\n";
-					$splitdata .= getAll();
-					break;
-				case "Excel":
-					$splitdata = "Excel file";
-					$splitdata .= export_excel();
-					break;
-				default:
-					$splitdata = "another case\n";
-					$splitdata .= splitmessage($text);
-					break;
-			}
+			$splitdata = "Add new order\n";
+			$splitdata .= splitmessage($text);
 
 			$messages = [
 				'type' => 'text',
@@ -56,17 +44,8 @@ if (!is_null($events['events'])) {
 	}
 }
 function splitmessage($messageIn){
-	$result = explode("!",$messageIn);
-	$message = "ADD\n--Customer--\n".$result[0]."\n--Order--\n".$result[1]."\n";
-	$message .= AddOrder($result);
-	return $message;
-}
-function getAll(){
-	$result = GetOrderAll();
-	return $result;
-}
-function export_excel(){  
-	return "\nhttps://message2order.herokuapp.com/Export_Excel.php";
+	$messageOut = AddOrder($messageIn);
+	return $messageOut;
 }
 echo "OK";
 ?>
