@@ -46,12 +46,15 @@ function CheckPatternMs($data){
     		$amount_product[$i] = $num;
     		$i++;
     	}
-	}
+    	else{
+    		$message_return .= "text: ".$text." num: ".$num."\n";
+    	}
+    }
 	if(empty(end($arr3))){
 		$message_return = "Error post code";
 	}
 	if($i == 0){
-		$message_return = "Error order".$i;
+		$message_return .= "Error order".$i;
 	}
 	if(empty($arr[5])){
 		$message_return = "Missing Cost all";
