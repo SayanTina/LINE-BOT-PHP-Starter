@@ -7,7 +7,7 @@ function AddOrder($messageOrder){
 		$reval = "failed";
 		return $reval;
 	}
-	$result_check_message = CheckPatternMs($messageOrder); 
+	$result_check_message = CheckPatternMs($messageOrder);
 	if($result_check_message != "success"){
 		return $result_check_message;
 	}
@@ -18,6 +18,22 @@ function AddOrder($messageOrder){
 	}
 	pg_close($dbconn);
 	return $reval;
+}
+function GetOrderToExcel(){
+	$connStrs = "host=ec2-54-204-41-80.compute-1.amazonaws.com port=5432 dbname=ddtqgibulmg329 user=xcouzcymallahy password=8110ad5d0c0f0f169502f0f61ce449a2704cbacc4f8d71b0aecf325701bca515";
+	$dbconn = pg_connect($connStrs);
+	if($dbconn == null){
+		$reval = "failed";
+		return $reval;
+	}
+	$result = pg_query($dbconn, "select * from public.order_message ");
+	$i=0;
+	while($row = pg_fetch_row($result)){
+		$data[$i++] = $row[0];
+	}
+	pg_close();
+	return $data;
+
 }
 function CheckPatternMs($data){
 	/*
@@ -40,7 +56,7 @@ function CheckPatternMs($data){
 
 	    $text = $textMatch[0];
 	    $num = $numMatch[0];
-		
+
     	if(!empty($text) && !empty($num)){
     		$name_product[$i] = $text;
     		$amount_product[$i] = $num;
@@ -62,4 +78,3 @@ function CheckPatternMs($data){
 	return $message_return;
 }
 ?>
-
