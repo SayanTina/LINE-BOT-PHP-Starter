@@ -41,7 +41,7 @@ function CheckPatternMs($data){
 	    $text = $textMatch[0];
 	    $num = $numMatch[0];
 		
-    	if(empty($text) && empty($num)){
+    	if(!empty($text) && !empty($num)){
     		$name_product[$i] = $text;
     		$amount_product[$i] = $num;
     		$i++;
