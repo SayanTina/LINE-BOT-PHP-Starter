@@ -51,7 +51,7 @@ function CheckPatternMs($data){
 		$message_return = "Error post code";
 	}
 	if($i==0){
-		$message_return .= "Error order";
+		$message_return = "Error order";
 	}
 	if(empty($arr[5])){
 		$message_return = "Missing Cost all";
